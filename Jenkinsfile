@@ -73,8 +73,7 @@ pipeline {
             }
         }
     }
-
-   post {
+post {
     success {
         echo 'Pipeline executed successfully!'
         echo 'Tools: Microsoft Teams Webhook, Webhooks, Datadog'

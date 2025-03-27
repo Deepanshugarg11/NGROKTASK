@@ -73,31 +73,19 @@ pipeline {
             }
         }
     }
-post {
-    success {
-        echo 'Pipeline executed successfully!'
-        echo 'Tools: Microsoft Teams Webhook, Webhooks, Datadog'
-        echo 'Integration Steps: Notify the team using Microsoft Teams Webhook and monitor performance with Datadog.'
-        echo 'What it does: Confirms the React app is built, tested, analyzed, scanned, and deployed correctly.'
 
-        // Send success email
-        emailext(
-            subject: "Jenkins Pipeline Execution Successful",
-            body: "The Jenkins pipeline for the React application has been successfully completed.",
-            to: "${EMAIL_RECIPIENT}"
-        )
-    }
-    failure {
-        echo 'Pipeline failed! Check the logs for more details.'
-        echo 'Tools: Loki, Splunk, New Relic'
-        echo 'Integration Steps: Capture logs using Loki, analyze them with Splunk, and monitor performance with New Relic.'
-        echo 'What it does: Notifies the team of pipeline failures for immediate attention.'
-
-        // Send failure email
-        emailext(
-            subject: "Jenkins Pipeline Execution Failed",
-            body: "The Jenkins pipeline for the React application has failed. Please check the logs for details.",
-            to: "${EMAIL_RECIPIENT}"
-        )
+    post {
+        success {
+            echo 'Pipeline executed successfully!'
+            echo 'Tools: Microsoft Teams Webhook, Webhooks, Datadog'
+            echo 'Integration Steps: Notify the team using Microsoft Teams Webhook and monitor performance with Datadog.'
+            echo 'What it does: Confirms the React app is built, tested, analyzed, scanned, and deployed correctly.'
+        }
+        failure {
+            echo 'Pipeline failed! Check the logs for more details.'
+            echo 'Tools: Loki, Splunk, New Relic'
+            echo 'Integration Steps: Capture logs using Loki, analyze them with Splunk, and monitor performance with New Relic.'
+            echo 'What it does: Notifies the team of pipeline failures for immediate attention.'
+        }
     }
 }

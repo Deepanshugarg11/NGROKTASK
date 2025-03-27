@@ -15,7 +15,7 @@ pipeline {
                 echo 'Building the React application...'
                 echo 'Tools: Yarn, Parcel, Rollup'
                 echo 'Integration Steps: Install dependencies using Yarn, bundle the React app with Parcel or Rollup, and generate optimized production assets.'
-                echo 'What it does: Compiles React code into a minified, production-ready format.'
+                echo 'What it does: Compiles React code into a minified, production-ready format'
             }
         }
 

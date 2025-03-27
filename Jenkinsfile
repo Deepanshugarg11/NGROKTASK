@@ -80,12 +80,21 @@ pipeline {
             echo 'Tools: Microsoft Teams Webhook, Webhooks, Datadog'
             echo 'Integration Steps: Notify the team using Microsoft Teams Webhook and monitor performance with Datadog.'
             echo 'What it does: Confirms the React app is built, tested, analyzed, scanned, and deployed correctly.'
+
+            mail subject: "Jenkins Pipeline Success: React App",
+                      body: "The Jenkins pipeline has completed successfully.\n\nBuild Details:\n- Job Name: ${JOB_NAME}\n- Build Number: ${BUILD_NUMBER}\n- Status: SUCCESS\n- Logs: ${BUILD_URL}\n\nRegards,\nJenkins",
+                      to: "${EMAIL_RECIPIENT}"
         }
+        
         failure {
             echo 'Pipeline failed! Check the logs for more details.'
             echo 'Tools: Loki, Splunk, New Relic'
             echo 'Integration Steps: Capture logs using Loki, analyze them with Splunk, and monitor performance with New Relic.'
             echo 'What it does: Notifies the team of pipeline failures for immediate attention.'
+
+            mail subject: "Jenkins Pipeline Failure: React App",
+                      body: "The Jenkins pipeline has failed.\n\nBuild Details:\n- Job Name: ${JOB_NAME}\n- Build Number: ${BUILD_NUMBER}\n- Status: FAILURE\n- Logs: ${BUILD_URL}\n\nPlease check the logs and take necessary actions.\n\nRegards,\nJenkins",
+                      to: "${EMAIL_RECIPIENT}"
         }
     }
 }

@@ -24,7 +24,7 @@ pipeline {
                 echo 'Running unit and integration tests...'
                 echo 'Tools: AVA, Karma, Chai'
                 echo 'Integration Steps: Use AVA or Karma for unit testing, Chai for assertions, and ensure test coverage meets project standards.'
-                echo 'What it does: Tests individual React components and their integration with state and APIs.'
+                echo 'What it does: Tests individual React components and their integration with state and APIs'
             }
         }
 
